@@ -1,0 +1,16 @@
+<div class="container" >
+    <% if flash[:notice].present? %>
+        <h1>create successfully</h1>
+    <% end %>
+
+    <%= form_for @user, :url => user_registration_path  do |f| %>
+    <%= f.label :email, "User Name" %>
+    <%= error_message(@user, :email) %>
+    <%= f.email_field :email %>
+    <%= error_message(@user, :password) %>
+    <%= f.password_field :password %>
+    <%= f.label :password_confirmation, "Password Comfirm" %>
+    <%= f.password_field :password_confirmation %>
+    <%= f.submit :submit %>
+    <% end %>
+</div> 
